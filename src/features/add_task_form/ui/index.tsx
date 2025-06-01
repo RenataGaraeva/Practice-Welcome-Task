@@ -4,17 +4,26 @@ import {handleSubmit} from "@features/add_task_form/model";
 
 import { useAppDispatch } from "@app/store/hooks";
 
+interface AddTaskFormElements extends HTMLFormControlsCollection {
+    taskTitle: HTMLInputElement;
+}
 
+interface AddTaskForm extends HTMLFormElement {
+    readonly elements: AddTaskFormElements;
+}
 
 export default function AddTaskForm() {
 
+
     const dispatch = useAppDispatch();
 
-
+    const onSubmit = (e: React.FormEvent<AddTaskForm>) => {
+        handleSubmit(e, dispatch);
+    };
     return (
         <>
             <form
-                onSubmit={() => handleSubmit(e.target.value, dispatch)}
+                onSubmit={onSubmit}
                 className="mb-3 mt-3 d-flex justify-content-center"
             >
                 <input
