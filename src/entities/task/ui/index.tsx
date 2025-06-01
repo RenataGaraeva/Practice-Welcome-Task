@@ -3,6 +3,8 @@ import ChangingTask from "./ChangingTask";
 import NotChangingTask from "./NotChangingTask";
 import { type Tasks } from "@features/add_task_form/TasksSlice";
 import { useState } from "react";
+import {deleteTextTask} from "@entities/task/model";
+import {useAppDispatch} from "@app/store/hooks";
 
 interface TaskProps {
   task: Tasks;
@@ -11,6 +13,8 @@ interface TaskProps {
 export default function Task({ task }: TaskProps) {
     const [text, setText] = useState(task.task);
     const [isEditing, setIsEditing] = useState(false);
+
+    const dispatch = useAppDispatch();
 
   return (
     <div className="d-flex flex-wrap justify-content-center align-items-center">
@@ -32,6 +36,7 @@ export default function Task({ task }: TaskProps) {
         className="btn btn-outline-primary me-2"
         type="button"
         value="Delete"
+        onClick={() => deleteTextTask(task, dispatch)}
       />
       <span>Created {task.creationDate}</span>
     </div>
