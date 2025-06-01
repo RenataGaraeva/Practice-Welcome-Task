@@ -1,5 +1,6 @@
 import {taskAdded, Tasks} from "@features/add_task_form/TasksSlice";
 import {nanoid} from "@reduxjs/toolkit";
+import {AppDispatch} from "@app/store";
 
 interface AddTaskFormElements extends HTMLFormControlsCollection {
     taskTitle: HTMLInputElement;

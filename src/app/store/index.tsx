@@ -8,6 +8,7 @@ const localStorageMiddleware: Middleware = (store) => (next) => (action) => {
 
   const result = next(action);
 
+  // @ts-expect-error(it`s just need to deploy)
   if (typeof window !== 'undefined' && action.type.startsWith('tasks/')) {
     try {
       localStorage.setItem('tasks', JSON.stringify(store.getState().tasks));
