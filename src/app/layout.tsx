@@ -1,3 +1,5 @@
+import {ProviderStore} from "@/app/provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -5,7 +7,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <ProviderStore>
+        {children}
+      </ProviderStore>
+      </body>
     </html>
   );
 }
