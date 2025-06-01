@@ -13,16 +13,10 @@ interface TaskProps {
 }
 
 export default function ChangingTask({
-                                         task,
                                          text,
                                      }: TaskProps) {
   return (
     <>
-      <input
-        className="form-check-input me-2"
-        type="checkbox"
-        checked={!task.active}
-      />
       <input className="form-control me-2 w-50" type="text" value={text}/>
       <input
         className="btn btn-outline-primary me-2"
