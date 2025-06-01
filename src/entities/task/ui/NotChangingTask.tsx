@@ -13,8 +13,6 @@ interface TaskProps {
 
 export default function NotChangingTask({
                                             task,
-                                            setText,
-                                            setIsEditing,
                                         }: TaskProps) {
   return (
     <>
