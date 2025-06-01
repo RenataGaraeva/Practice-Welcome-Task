@@ -1,9 +1,12 @@
+'use client'
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Tasks {
   task: string;
   id: string;
   active: boolean;
+  creationDate: string;
 }
 
 export const tasksSlice = createSlice({
