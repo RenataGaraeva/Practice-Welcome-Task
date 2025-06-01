@@ -1,21 +1,39 @@
-'use client';
+"use client";
+import ChangingTask from "./ChangingTask";
+import NotChangingTask from "./NotChangingTask";
+import { type Tasks } from "@features/add_task_form/TasksSlice";
+import { useState } from "react";
 
 interface TaskProps {
-    task: Tasks;
+  task: Tasks;
 }
 
 export default function Task({ task }: TaskProps) {
+    const [text, setText] = useState(task.task);
+    const [isEditing, setIsEditing] = useState(false);
 
-    return (
-        <div className="d-flex flex-wrap justify-content-center align-items-center">
-                        <input
-                className="btn btn-outline-primary me-2"
-                type="button"
-                value="Delete"
+  return (
+    <div className="d-flex flex-wrap justify-content-center align-items-center">
+        {isEditing ? (
+            <ChangingTask
+                task={task}
+                setIsEditing={setIsEditing}
+                text={text}
+                setText={setText}
             />
-            <span>
-          Created {task.creationDate}
-          </span>
-        </div>
-    );
+        ) : (
+            <NotChangingTask
+                task={task}
+                setIsEditing={setIsEditing}
+                setText={setText}
+            />
+        )}
+      <input
+        className="btn btn-outline-primary me-2"
+        type="button"
+        value="Delete"
+      />
+      <span>Created {task.creationDate}</span>
+    </div>
+  );
 }

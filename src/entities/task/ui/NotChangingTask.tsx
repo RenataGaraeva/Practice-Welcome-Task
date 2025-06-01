@@ -3,6 +3,7 @@
 import {
     type Tasks,
 } from "@features/add_task_form/TasksSlice";
+import {handleStartEditing} from "@entities/task/model";
 
 interface TaskProps {
     task: Tasks;
@@ -26,6 +27,7 @@ export default function NotChangingTask({
       <input
         className="btn btn-outline-primary me-2"
         type="button"
+        onClick={handleStartEditing}
         value="Change"
       />
     </>

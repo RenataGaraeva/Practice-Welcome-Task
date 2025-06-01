@@ -3,6 +3,7 @@
 import {
     type Tasks
 } from "@features/add_task_form/TasksSlice";
+import {handleSaveChanges} from "@entities/task/model";
 
 interface TaskProps {
     task: Tasks;
@@ -26,6 +27,7 @@ export default function ChangingTask({
       <input
         className="btn btn-outline-primary me-2"
         type="button"
+        onClick={handleSaveChanges}
         value="Save"
       />
     </>

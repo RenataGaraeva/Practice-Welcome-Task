@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
 import tasksReducer from "@features/add_task_form/TasksSlice";
 
 export const store = configureStore({
-    reducer: {
-        tasks: tasksReducer
-    }
+  reducer: {
+    tasks: tasksReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
