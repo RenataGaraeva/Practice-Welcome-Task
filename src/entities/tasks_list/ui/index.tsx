@@ -5,7 +5,6 @@ import { RootState } from "@app/store";
 import Task from "@entities/task/ui";
 
 export default function Tasks() {
-
   const tasks = useSelector((state: RootState) => state.tasks);
 
   return (
@@ -15,7 +14,7 @@ export default function Tasks() {
           className="d-flex align-items-center justify-content-center mb-3"
           key={task.id}
         >
-          <Task task={task}/>
+          <Task task={task} />
         </div>
       ))}
     </>

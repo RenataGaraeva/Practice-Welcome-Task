@@ -1,6 +1,6 @@
 "use client";
 
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Tasks {
   task: string;
@@ -24,25 +24,26 @@ export const tasksSlice = createSlice({
     taskDone: (
       state,
       action: PayloadAction<{ id: string; active: boolean }>,
-  ) => {
-    const task = state.find((t) => t.id === action.payload.id);
-    if (task) {
-      task.active = action.payload.active; // Явно задаём новый статус
-    }
-  },
-  changeTask: (
+    ) => {
+      const task = state.find((t) => t.id === action.payload.id);
+      if (task) {
+        task.active = action.payload.active; // Явно задаём новый статус
+      }
+    },
+    changeTask: (
       state,
       action: PayloadAction<{ id: string; task: string }>,
-  ) => {
-    const taskToUpdate = state.find(
+    ) => {
+      const taskToUpdate = state.find(
         (element) => element.id === action.payload.id,
-    );
-    if (taskToUpdate) {
-      taskToUpdate.task = action.payload.task;
-    }
-  }
-}
+      );
+      if (taskToUpdate) {
+        taskToUpdate.task = action.payload.task;
+      }
+    },
+  },
 });
 
-export const { taskAdded, deleteTask, taskDone, changeTask} = tasksSlice.actions;
+export const { taskAdded, deleteTask, taskDone, changeTask } =
+  tasksSlice.actions;
 export default tasksSlice.reducer;
