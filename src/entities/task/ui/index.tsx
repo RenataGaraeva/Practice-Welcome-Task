@@ -3,7 +3,7 @@ import ChangingTask from "./ChangingTask";
 import NotChangingTask from "./NotChangingTask";
 import { type Tasks } from "@features/add_task_form/TasksSlice";
 import { useState } from "react";
-import {deleteTextTask} from "@entities/task/model";
+import {deleteTextTask, makeIdDoneOrNotDone} from "@entities/task/model";
 import {useAppDispatch} from "@app/store/hooks";
 
 interface TaskProps {
@@ -22,6 +22,7 @@ export default function Task({ task }: TaskProps) {
               className="form-check-input me-2"
               type="checkbox"
               checked={!task.active}
+              onChange={() => makeIdDoneOrNotDone(task, dispatch)}
           />
           {isEditing ? (
               <ChangingTask
