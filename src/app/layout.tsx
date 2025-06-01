@@ -1,4 +1,4 @@
-import {ProviderStore} from "@/app/provider";
+import { ProviderStore } from "@/app/provider";
 
 export default function RootLayout({
   children,
@@ -8,9 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <ProviderStore>
-        {children}
-      </ProviderStore>
+        <ProviderStore>{children}</ProviderStore>
       </body>
     </html>
   );
