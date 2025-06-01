@@ -16,11 +16,6 @@ export default function NotChangingTask({
                                         }: TaskProps) {
   return (
     <>
-      <input
-        className="form-check-input me-2"
-        type="checkbox"
-        checked={!task.active}
-      />
       <div className="me-2 fs-6 fs-md-5 fs-lg-4">{task.task}</div>
       <input
         className="btn btn-outline-primary me-2"
