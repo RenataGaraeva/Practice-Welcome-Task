@@ -20,4 +20,3 @@ export const makeIdDoneOrNotDone = (task: Tasks, dispatch: AppDispatch) => {
         }),
     );
 };
-
